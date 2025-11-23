@@ -58,7 +58,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={`bg-[#1a2b34] text-[#c8dfea] min-h-screen font-sans transition-opacity duration-1000 ${appVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`bg-[#F5F5DC] text-[#2c3e50] min-h-screen font-sans transition-opacity duration-1000 ${appVisible ? 'opacity-100' : 'opacity-0'}`}>
       <Header 
         currentPage={currentPage} 
         setCurrentPage={setCurrentPage}

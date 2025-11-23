@@ -177,50 +177,53 @@ const AddCattleModal: React.FC<AddCattleModalProps> = ({ isOpen, onClose, onAddC
 
     return (
         <div className="fixed inset-0 bg-black/70 z-50 flex justify-center items-center backdrop-blur-sm p-4">
-            <div className="bg-[#253f4b] rounded-2xl shadow-2xl w-full max-w-2xl border border-[#365563] max-h-[90vh] overflow-y-auto">
-                <div className="p-6 border-b border-[#365563] flex justify-between items-center sticky top-0 bg-[#253f4b]/80 backdrop-blur-sm z-10">
-                    <h2 className="text-2xl font-bold text-white">Register New Cattle</h2>
-                    <button onClick={onClose} className="text-[#8eb1c2] hover:text-white"><i className="fas fa-times text-xl"></i></button>
+            <div className="bg-white/95 rounded-2xl shadow-2xl w-full max-w-2xl border border-[#8B4513]/30 max-h-[90vh] overflow-y-auto">
+                <div className="p-6 border-b border-[#8B4513]/30 flex justify-between items-center sticky top-0 bg-white/95 backdrop-blur-sm z-10">
+                    <h2 className="text-2xl font-bold text-[#654321]">Register New Cattle</h2>
+                    <button onClick={onClose} className="text-[#8B4513] hover:text-[#A0522D] transition-all duration-300 transform hover:scale-125"><i className="fas fa-times text-xl"></i></button>
                 </div>
                 <div className="p-6">
                      <form className="space-y-4">
-                        <button type="button" onClick={handleScanQr} className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#365563] text-white font-semibold rounded-lg hover:bg-[#446879] transition-colors">
-                           <i className="fas fa-qrcode"></i> Add Cattle via QR Tag Scanning
+                        <button type="button" onClick={handleScanQr} className="group relative w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-[#8B4513] to-[#A0522D] text-white font-bold rounded-xl hover:from-[#A0522D] hover:to-[#8B4513] transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#8B4513]/70 border-2 border-[#654321]/30 active:scale-100 active:translate-y-0">
+                           <span className="relative z-10"><i className="fas fa-qrcode"></i> Add Cattle via QR Tag Scanning</span>
+                           <span className="absolute inset-0 bg-white/20 rounded-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                         </button>
                         {isScanning && <video ref={videoRef} autoPlay playsInline className="w-full rounded-lg h-64 object-cover bg-black"></video>}
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                           <input name="breed" value={formData.breed} onChange={handleFormChange} type="text" placeholder="Breed" className="w-full bg-[#1a2b34] text-white px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#537d90] border border-[#365563]"/>
-                           <input name="age" value={formData.age} onChange={handleFormChange} type="number" placeholder="Age (years)" className="w-full bg-[#1a2b34] text-white px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#537d90] border border-[#365563]"/>
+                           <input name="breed" value={formData.breed} onChange={handleFormChange} type="text" placeholder="Breed" className="w-full bg-white text-[#654321] px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B4513] border border-[#8B4513]/30"/>
+                           <input name="age" value={formData.age} onChange={handleFormChange} type="number" placeholder="Age (years)" className="w-full bg-white text-[#654321] px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B4513] border border-[#8B4513]/30"/>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                             <select name="gender" value={formData.gender} onChange={handleFormChange} className="w-full bg-[#1a2b34] text-white px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#537d90] border border-[#365563]">
+                             <select name="gender" value={formData.gender} onChange={handleFormChange} className="w-full bg-white text-[#654321] px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B4513] border border-[#8B4513]/30">
                                 <option>Male</option>
                                 <option>Female</option>
                              </select>
-                           <input name="weight" value={formData.weight} onChange={handleFormChange} type="number" placeholder="Weight (kg)" className="w-full bg-[#1a2b34] text-white px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#537d90] border border-[#365563]"/>
+                           <input name="weight" value={formData.weight} onChange={handleFormChange} type="number" placeholder="Weight (kg)" className="w-full bg-white text-[#654321] px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B4513] border border-[#8B4513]/30"/>
                         </div>
-                         <input name="location" value={formData.location} onChange={handleFormChange} type="text" placeholder="Location" className="w-full bg-[#1a2b34] text-white px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#537d90] border border-[#365563]"/>
-                         <input name="price" value={formData.price} onChange={handleFormChange} type="number" placeholder="Price (PKR)" className="w-full bg-[#1a2b34] text-white px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#537d90] border border-[#365563]"/>
+                         <input name="location" value={formData.location} onChange={handleFormChange} type="text" placeholder="Location" className="w-full bg-white text-[#654321] px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B4513] border border-[#8B4513]/30"/>
+                         <input name="price" value={formData.price} onChange={handleFormChange} type="number" placeholder="Price (PKR)" className="w-full bg-white text-[#654321] px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B4513] border border-[#8B4513]/30"/>
 
                         <div>
-                            <label className="text-[#8eb1c2]">Upload Photos & Videos</label>
-                            <div className="mt-1 p-4 bg-[#1a2b34]/50 rounded-lg border border-[#365563] space-y-4">
-                               <div className="flex justify-center px-6 pt-5 pb-6 border-2 border-[#365563] border-dashed rounded-md">
+                            <label className="text-[#654321]">Upload Photos & Videos</label>
+                            <div className="mt-1 p-4 bg-[#F5F5DC]/60 rounded-lg border border-[#8B4513]/30 space-y-4">
+                               <div className="flex justify-center px-6 pt-5 pb-6 border-2 border-[#8B4513]/30 border-dashed rounded-md">
                                     <div className="space-y-1 text-center">
-                                        <i className="fas fa-images mx-auto h-12 w-12 text-[#8eb1c2]/50"></i>
-                                        <p className="text-sm text-[#8eb1c2]">Drag & drop photos or click to upload</p>
+                                        <i className="fas fa-images mx-auto h-12 w-12 text-[#8B4513]/50"></i>
+                                        <p className="text-sm text-[#8B4513]">Drag & drop photos or click to upload</p>
                                     </div>
                                </div>
                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                   <button type="button" onClick={isRecording ? handleStopRecording : handleStartRecording} className={`w-full flex items-center justify-center gap-2 px-4 py-3 font-semibold rounded-lg transition-colors ${isRecording ? 'bg-red-600 hover:bg-red-500 text-white' : 'bg-blue-600 hover:bg-blue-500 text-white'}`}>
-                                       <i className={`fas ${isRecording ? 'fa-stop-circle' : 'fa-video'}`}></i> {isRecording ? 'Stop Recording' : 'Record Video'}
+                                   <button type="button" onClick={isRecording ? handleStopRecording : handleStartRecording} className={`group relative w-full flex items-center justify-center gap-2 px-4 py-3 font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 hover:shadow-2xl border-2 active:scale-100 active:translate-y-0 ${isRecording ? 'bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-600 text-white hover:shadow-red-500/70 border-red-400/30' : 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white hover:shadow-blue-500/70 border-blue-400/30'}`}>
+                                       <span className="relative z-10"><i className={`fas ${isRecording ? 'fa-stop-circle' : 'fa-video'}`}></i> {isRecording ? 'Stop Recording' : 'Record Video'}</span>
+                                       <span className="absolute inset-0 bg-white/20 rounded-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                                    </button>
-                                   <button type="button" onClick={handleGenerateAiVideo} disabled={isGeneratingVideo} className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#446879] text-white font-semibold rounded-lg hover:bg-[#537d90] transition-colors disabled:bg-stone-600 disabled:cursor-not-allowed">
-                                       <i className="fas fa-magic"></i> {isGeneratingVideo ? 'Generating...' : 'Generate AI Video'}
+                                   <button type="button" onClick={handleGenerateAiVideo} disabled={isGeneratingVideo} className="group relative w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-[#8B4513] to-[#A0522D] hover:from-[#A0522D] hover:to-[#8B4513] text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#8B4513]/70 border-2 border-[#654321]/30 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:transform-none disabled:border-gray-400 disabled:shadow-none active:scale-100 active:translate-y-0">
+                                       <span className="relative z-10"><i className="fas fa-magic"></i> {isGeneratingVideo ? 'Generating...' : 'Generate AI Video'}</span>
+                                       <span className="absolute inset-0 bg-white/20 rounded-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left disabled:hidden"></span>
                                    </button>
                                </div>
-                                {isGeneratingVideo && <div className="text-center text-[#608da2] animate-pulse">{generationStatus}</div>}
+                                {isGeneratingVideo && <div className="text-center text-[#8B4513] animate-pulse">{generationStatus}</div>}
                                 {(videoStream || recordedVideoUrl || generatedVideoUrl) && (
                                     <div className="w-full aspect-video bg-black rounded-lg overflow-hidden">
                                         <video ref={videoRef} src={recordedVideoUrl || generatedVideoUrl || ''} autoPlay={!recordedVideoUrl && !generatedVideoUrl} playsInline controls={!!recordedVideoUrl || !!generatedVideoUrl} className="w-full h-full object-cover"></video>
@@ -232,8 +235,14 @@ const AddCattleModal: React.FC<AddCattleModalProps> = ({ isOpen, onClose, onAddC
                         {/* Health records and other fields... */}
                         
                         <div className="pt-5 flex justify-end gap-4">
-                             <button type="button" onClick={onClose} className="px-6 py-2 bg-[#365563] text-white rounded-lg hover:bg-[#446879]">Cancel</button>
-                             <button type="submit" className="px-6 py-2 bg-[#446879] text-white rounded-lg hover:bg-[#537d90]">Add Cattle</button>
+                             <button type="button" onClick={onClose} className="group relative px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-600 text-white font-bold rounded-xl hover:from-gray-600 hover:to-gray-500 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 hover:shadow-2xl hover:shadow-gray-500/60 border-2 border-gray-400/30 active:scale-105 active:translate-y-0">
+                                 <span className="relative z-10">Cancel</span>
+                                 <span className="absolute inset-0 bg-white/20 rounded-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                             </button>
+                             <button type="submit" className="group relative px-6 py-3 bg-gradient-to-r from-[#8B4513] to-[#A0522D] text-white font-bold rounded-xl hover:from-[#A0522D] hover:to-[#8B4513] transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#8B4513]/70 border-2 border-[#654321]/30 active:scale-105 active:translate-y-0">
+                                 <span className="relative z-10">Add Cattle</span>
+                                 <span className="absolute inset-0 bg-white/20 rounded-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                             </button>
                         </div>
                     </form>
                 </div>

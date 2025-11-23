@@ -22,8 +22,8 @@ const NavLink: React.FC<{
       onClick={() => setCurrentPage(page)}
       className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
         isActive
-          ? 'bg-[#446879]/20 text-[#acc8d7]'
-          : 'text-[#8eb1c2] hover:text-white hover:bg-[#253f4b]/50'
+          ? 'bg-[#A0522D]/30 text-white'
+          : 'text-[#F5DEB3] hover:text-white hover:bg-[#A0522D]/40 hover:scale-105'
       }`}
     >
       {children}
@@ -36,12 +36,12 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, user, onLo
   const { t } = useTranslation();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#1a2b34]/80 backdrop-blur-lg border-b border-[#365563]/50 shadow-lg">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#8B4513] backdrop-blur-lg border-b border-[#654321] shadow-lg">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
-            <button onClick={() => setCurrentPage(Page.HOME)} className="flex-shrink-0 flex items-center gap-2">
-              <i className="fas fa-cow text-2xl text-[#608da2]"></i>
+            <button onClick={() => setCurrentPage(Page.HOME)} className="flex-shrink-0 flex items-center gap-2 transition-transform duration-300 hover:scale-105">
+              <i className="fas fa-cow text-2xl text-[#F5DEB3]"></i>
               <span className="text-xl font-bold text-white">{t('header.agriTradeX')}</span>
             </button>
           </div>
@@ -52,24 +52,26 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, user, onLo
           </nav>
           <div className="flex items-center space-x-4">
              <div className="hidden items-center space-x-2 md:flex">
-                <button onClick={() => setLanguage('en')} className={`font-semibold ${language === 'en' ? 'text-[#acc8d7]' : 'text-[#8eb1c2] hover:text-white'}`}>{t('header.en')}</button>
-                <span className="text-[#365563]">|</span>
-                <button onClick={() => setLanguage('ur')} className={`font-semibold ${language === 'ur' ? 'text-[#acc8d7]' : 'text-[#8eb1c2] hover:text-white'}`}>{t('header.ur')}</button>
+                <button onClick={() => setLanguage('en')} className={`font-semibold transition-all duration-300 ${language === 'en' ? 'text-white' : 'text-[#F5DEB3] hover:text-white hover:scale-110'}`}>{t('header.en')}</button>
+                <span className="text-[#654321]">|</span>
+                <button onClick={() => setLanguage('ur')} className={`font-semibold transition-all duration-300 ${language === 'ur' ? 'text-white' : 'text-[#F5DEB3] hover:text-white hover:scale-110'}`}>{t('header.ur')}</button>
              </div>
              {user ? (
                 <div className="flex items-center space-x-4">
                     <span className="text-white hidden sm:block">{t('header.welcome')}, {user.name}</span>
                     <button 
                         onClick={onLogout}
-                        className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-500 transition-colors duration-300 shadow-md">
-                        {t('header.logout')}
+                        className="group relative px-5 py-2.5 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-xl hover:from-red-500 hover:to-red-600 transition-all duration-300 shadow-lg transform hover:scale-110 hover:-translate-y-1 hover:shadow-2xl hover:shadow-red-500/60 border-2 border-red-400/30 active:scale-105 active:translate-y-0">
+                        <span className="relative z-10">{t('header.logout')}</span>
+                        <span className="absolute inset-0 bg-white/20 rounded-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                     </button>
                 </div>
              ) : (
                 <button 
                     onClick={() => setCurrentPage(Page.LOGIN)}
-                    className="px-4 py-2 bg-[#446879] text-white rounded-lg hover:bg-[#537d90] transition-all duration-300 shadow-md hover:shadow-[0_0_15px_rgba(68,104,121,0.5)]">
-                    {t('header.loginRegister')}
+                    className="group relative px-5 py-2.5 bg-gradient-to-r from-[#8B4513] to-[#A0522D] text-white font-bold rounded-xl hover:from-[#A0522D] hover:to-[#8B4513] transition-all duration-300 shadow-lg transform hover:scale-110 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#8B4513]/60 border-2 border-[#654321]/30 active:scale-105 active:translate-y-0">
+                    <span className="relative z-10">{t('header.loginRegister')}</span>
+                    <span className="absolute inset-0 bg-white/20 rounded-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                 </button>
              )}
           </div>

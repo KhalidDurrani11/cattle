@@ -18,7 +18,7 @@ const VerifiedIcon: React.FC = () => (
 );
 
 const QRIcon: React.FC = () => (
-    <div className="absolute top-4 left-4 rtl:left-auto rtl:right-4 bg-[#365563]/20 text-stone-300 rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm border border-[#365563]/30" title="Digital ID">
+    <div className="absolute top-4 left-4 rtl:left-auto rtl:right-4 bg-[#8B4513]/20 text-[#654321] rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm border border-[#8B4513]/40 shadow-md" title="Digital ID">
       <i className="fas fa-qrcode"></i>
     </div>
   );
@@ -33,12 +33,12 @@ const CattleCard: React.FC<CattleCardProps> = ({ cattle, onViewDetails, onViewSe
   }
 
   return (
-    <div className="bg-[#253f4b] rounded-2xl overflow-hidden border border-[#365563]/50 shadow-lg hover:shadow-[0_0_20px_rgba(83,125,144,0.3)] transition-all duration-300 transform hover:-translate-y-2 group flex flex-col">
-      <div className="relative">
+    <div className="bg-white/90 backdrop-blur-sm rounded-2xl overflow-hidden border-2 border-[#8B4513]/30 shadow-xl hover:shadow-2xl hover:shadow-[#8B4513]/40 transition-all duration-500 transform hover:-translate-y-3 hover:scale-[1.02] group flex flex-col">
+      <div className="relative overflow-hidden">
         <img 
           src={getCattleImageUrl(cattle.id, cattle.imageUrl)} 
           alt={`${cattle.breed} - ${cattle.location}`}
-          className="w-full h-56 object-cover object-center"
+          className="w-full h-64 object-cover object-center transition-transform duration-500 group-hover:scale-110"
           style={{ aspectRatio: '16/9' }}
           loading="lazy"
           decoding="async"
@@ -50,42 +50,43 @@ const CattleCard: React.FC<CattleCardProps> = ({ cattle, onViewDetails, onViewSe
             }
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#654321]/80 via-[#654321]/40 to-transparent"></div>
         {cattle.isVerified && <VerifiedIcon />}
         <QRIcon />
-        <div className="absolute bottom-0 left-0 rtl:left-auto rtl:right-0 p-4">
-            <h3 className="text-xl font-bold text-white">{cattle.breed}</h3>
-            <p className="text-sm text-stone-300 flex items-center gap-2"><i className="fas fa-map-marker-alt"></i> {cattle.location}</p>
+        <div className="absolute bottom-0 left-0 rtl:left-auto rtl:right-0 p-5 w-full">
+            <h3 className="text-2xl font-bold text-white drop-shadow-lg mb-1">{cattle.breed}</h3>
+            <p className="text-sm text-white/90 flex items-center gap-2 drop-shadow-md"><i className="fas fa-map-marker-alt"></i> {cattle.location}</p>
         </div>
       </div>
-      <div className="p-5 flex flex-col flex-grow">
+      <div className="p-6 flex flex-col flex-grow bg-gradient-to-b from-white to-[#F5F5DC]/50">
         {seller && (
-          <div className="mb-3">
-             <button onClick={handleSellerClick} className="text-sm text-[#8eb1c2] hover:text-[#acc8d7] transition-colors">{seller.name}</button>
+          <div className="mb-4">
+             <button onClick={handleSellerClick} className="text-sm font-medium text-[#8B4513] hover:text-[#A0522D] transition-all duration-300 transform hover:scale-105">{seller.name}</button>
              <StarRating rating={seller.rating} ratingCount={seller.ratingCount} />
           </div>
         )}
-        <div className="grid grid-cols-3 gap-4 text-center mb-4">
+        <div className="grid grid-cols-3 gap-3 text-center mb-5 bg-[#F5F5DC]/60 rounded-lg p-3 border border-[#8B4513]/20">
             <div>
-                <p className="text-xs text-[#8eb1c2]">{t('cattleCard.age')}</p>
-                <p className="font-semibold text-white">{cattle.age} {t('cattleCard.yrs')}</p>
+                <p className="text-xs font-medium text-[#8B4513] mb-1">{t('cattleCard.age')}</p>
+                <p className="font-bold text-[#654321] text-lg">{cattle.age} {t('cattleCard.yrs')}</p>
             </div>
              <div>
-                <p className="text-xs text-[#8eb1c2]">{t('cattleCard.weight')}</p>
-                <p className="font-semibold text-white">{cattle.weight} {t('cattleCard.kg')}</p>
+                <p className="text-xs font-medium text-[#8B4513] mb-1">{t('cattleCard.weight')}</p>
+                <p className="font-bold text-[#654321] text-lg">{cattle.weight} {t('cattleCard.kg')}</p>
             </div>
              <div>
-                <p className="text-xs text-[#8eb1c2]">{t('cattleCard.gender')}</p>
-                <p className="font-semibold text-white">{cattle.gender}</p>
+                <p className="text-xs font-medium text-[#8B4513] mb-1">{t('cattleCard.gender')}</p>
+                <p className="font-bold text-[#654321] text-lg">{cattle.gender}</p>
             </div>
         </div>
-        <div className="text-center mb-4">
-            <p className="text-2xl font-bold text-[#608da2]">{t('cattleCard.priceUnit')} {cattle.price.toLocaleString()}</p>
+        <div className="text-center mb-5">
+            <p className="text-3xl font-extrabold text-[#8B4513] drop-shadow-sm">{t('cattleCard.priceUnit')} {cattle.price.toLocaleString()}</p>
         </div>
         <button 
           onClick={() => onViewDetails(cattle)}
-          className="w-full mt-auto bg-[#446879] text-white font-bold py-3 rounded-lg hover:bg-[#537d90] transition-colors duration-300 group-hover:shadow-lg group-hover:shadow-[#537d90]/30">
-            {t('cattleCard.viewDetails')}
+          className="w-full mt-auto bg-gradient-to-r from-[#8B4513] to-[#A0522D] text-white font-bold py-4 rounded-xl hover:from-[#A0522D] hover:to-[#8B4513] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-[#8B4513]/60 active:scale-95 border-2 border-transparent hover:border-[#654321]/30 relative overflow-hidden group">
+            <span className="relative z-10">{t('cattleCard.viewDetails')}</span>
+            <span className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
         </button>
       </div>
     </div>

@@ -42,10 +42,10 @@ const CattleDetailsModal: React.FC<CattleDetailsModalProps> = ({ cattle, onClose
                 sellerName={seller.name}
             />}
             <div className="fixed inset-0 bg-black/70 z-50 flex justify-center items-center backdrop-blur-sm p-4">
-                <div className="bg-[#253f4b] rounded-2xl shadow-2xl w-full max-w-4xl border border-[#365563] max-h-[90vh] overflow-y-auto">
-                    <div className="sticky top-0 bg-[#253f4b]/80 backdrop-blur-sm z-10 p-4 border-b border-[#365563] flex justify-between items-center">
-                        <h2 className="text-2xl font-bold text-white">{cattle.breed}</h2>
-                        <button onClick={onClose} className="text-[#8eb1c2] hover:text-white"><i className="fas fa-times text-xl"></i></button>
+                <div className="bg-white/95 rounded-2xl shadow-2xl w-full max-w-4xl border border-[#8B4513]/30 max-h-[90vh] overflow-y-auto">
+                    <div className="sticky top-0 bg-white/95 backdrop-blur-sm z-10 p-4 border-b border-[#8B4513]/30 flex justify-between items-center">
+                        <h2 className="text-2xl font-bold text-[#654321]">{cattle.breed}</h2>
+                        <button onClick={onClose} className="text-[#8B4513] hover:text-[#A0522D] transition-all duration-300 transform hover:scale-125"><i className="fas fa-times text-xl"></i></button>
                     </div>
                     <div className="p-6">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -97,46 +97,53 @@ const CattleDetailsModal: React.FC<CattleDetailsModalProps> = ({ cattle, onClose
                             </div>
                             <div>
                                 <div className="mb-6">
-                                    <p className="text-3xl font-bold text-[#608da2] mb-2">PKR {cattle.price.toLocaleString()}</p>
+                                    <p className="text-3xl font-bold text-[#8B4513] mb-2">PKR {cattle.price.toLocaleString()}</p>
                                     {seller && (
-                                        <div className="text-stone-300 mb-2">
-                                            <i className="fas fa-user-check mr-2 rtl:mr-0 rtl:ml-2 text-[#8eb1c2]"></i>Seller: {' '}
-                                            <button onClick={handleSellerClick} className="font-semibold text-white hover:text-[#acc8d7] underline transition-colors">{seller.name}</button>
+                                        <div className="text-[#654321] mb-2">
+                                            <i className="fas fa-user-check mr-2 rtl:mr-0 rtl:ml-2 text-[#8B4513]"></i>Seller: {' '}
+                                            <button onClick={handleSellerClick} className="font-semibold text-[#8B4513] hover:text-[#A0522D] underline transition-all duration-300 transform hover:scale-105">{seller.name}</button>
                                             <div className="ml-6 rtl:ml-0 rtl:mr-6">
                                                 <StarRating rating={seller.rating} ratingCount={seller.ratingCount} />
                                             </div>
                                         </div>
                                     )}
-                                    <p className="text-stone-300"><i className="fas fa-map-marker-alt mr-2 rtl:mr-0 rtl:ml-2 text-[#8eb1c2]"></i>Location: <span className="font-semibold text-white">{cattle.location}</span></p>
+                                    <p className="text-[#654321]"><i className="fas fa-map-marker-alt mr-2 rtl:mr-0 rtl:ml-2 text-[#8B4513]"></i>Location: <span className="font-semibold text-[#654321]">{cattle.location}</span></p>
                                 </div>
-                                <div className="grid grid-cols-3 gap-4 text-center mb-6 bg-[#1a2b34]/50 p-4 rounded-lg border border-[#365563]">
-                                    <div><p className="text-xs text-[#8eb1c2]">Age</p><p className="font-semibold text-white">{cattle.age} yrs</p></div>
-                                    <div><p className="text-xs text-[#8eb1c2]">Weight</p><p className="font-semibold text-white">{cattle.weight} kg</p></div>
-                                    <div><p className="text-xs text-[#8eb1c2]">Gender</p><p className="font-semibold text-white">{cattle.gender}</p></div>
+                                <div className="grid grid-cols-3 gap-4 text-center mb-6 bg-[#F5F5DC]/80 p-4 rounded-lg border border-[#8B4513]/30">
+                                    <div><p className="text-xs text-[#8B4513]">Age</p><p className="font-semibold text-[#654321]">{cattle.age} yrs</p></div>
+                                    <div><p className="text-xs text-[#8B4513]">Weight</p><p className="font-semibold text-[#654321]">{cattle.weight} kg</p></div>
+                                    <div><p className="text-xs text-[#8B4513]">Gender</p><p className="font-semibold text-[#654321]">{cattle.gender}</p></div>
                                 </div>
                                 
-                                <h3 className="text-xl font-bold text-white mb-4"><i className="fas fa-passport mr-2 rtl:mr-0 rtl:ml-2 text-[#608da2]"></i>Digital Health Passport</h3>
-                                <div className="space-y-3 max-h-60 overflow-y-auto pr-2 rtl:pr-0 rtl:pl-2 border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#537d90]/20 pl-4 rtl:pl-0 rtl:pr-4">
+                                <h3 className="text-xl font-bold text-[#654321] mb-4"><i className="fas fa-passport mr-2 rtl:mr-0 rtl:ml-2 text-[#8B4513]"></i>Digital Health Passport</h3>
+                                <div className="space-y-3 max-h-60 overflow-y-auto pr-2 rtl:pr-0 rtl:pl-2 border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#8B4513]/30 pl-4 rtl:pl-0 rtl:pr-4">
                                     {cattle.healthRecords.length > 0 ? cattle.healthRecords.map((record, index) => (
-                                        <div key={index} className="bg-[#1a2b34]/50 p-3 rounded-lg border border-[#365563]">
-                                            <p className="font-semibold text-white">{record.vaccine}</p>
-                                            <p className="text-sm text-[#8eb1c2]">Date: {record.date} | Vet: {record.vet}</p>
-                                            <p className="text-sm text-stone-300 mt-1">Notes: {record.notes}</p>
+                                        <div key={index} className="bg-[#F5F5DC]/60 p-3 rounded-lg border border-[#8B4513]/20">
+                                            <p className="font-semibold text-[#654321]">{record.vaccine}</p>
+                                            <p className="text-sm text-[#8B4513]">Date: {record.date} | Vet: {record.vet}</p>
+                                            <p className="text-sm text-[#654321] mt-1">Notes: {record.notes}</p>
                                         </div>
                                     )) : 
-                                    <div className="bg-[#1a2b34]/50 p-3 rounded-lg border border-[#365563]">
-                                        <p className="text-[#8eb1c2] text-center">No health records available.</p>
+                                    <div className="bg-[#F5F5DC]/60 p-3 rounded-lg border border-[#8B4513]/20">
+                                        <p className="text-[#8B4513] text-center">No health records available.</p>
                                     </div>
                                     }
                                 </div>
 
                                 <div className="mt-8 flex flex-col gap-4">
                                     <div className="flex gap-4">
-                                        <button className="w-full bg-[#446879] text-white font-bold py-3 rounded-lg hover:bg-[#537d90] transition-colors">Buy Now</button>
-                                        <button className="w-full bg-[#365563] text-white font-bold py-3 rounded-lg hover:bg-[#446879] transition-colors">Make an Offer</button>
+                                        <button className="group relative w-full bg-gradient-to-r from-[#8B4513] to-[#A0522D] text-white font-bold py-4 rounded-xl hover:from-[#A0522D] hover:to-[#8B4513] transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#8B4513]/70 border-2 border-[#654321]/30 active:scale-100 active:translate-y-0">
+                                            <span className="relative z-10">Buy Now</span>
+                                            <span className="absolute inset-0 bg-white/20 rounded-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                                        </button>
+                                        <button className="group relative w-full bg-gradient-to-r from-[#A0522D] to-[#8B4513] text-white font-bold py-4 rounded-xl hover:from-[#8B4513] hover:to-[#A0522D] transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#A0522D]/70 border-2 border-[#654321]/30 active:scale-100 active:translate-y-0">
+                                            <span className="relative z-10">Make an Offer</span>
+                                            <span className="absolute inset-0 bg-white/20 rounded-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                                        </button>
                                     </div>
-                                    <button onClick={() => setIsReviewModalOpen(true)} className="w-full bg-transparent border border-[#537d90] text-[#608da2] font-bold py-3 rounded-lg hover:bg-[#537d90]/10 transition-colors">
-                                        <i className="fas fa-star mr-2 rtl:mr-0 rtl:ml-2"></i> Leave a Review
+                                    <button onClick={() => setIsReviewModalOpen(true)} className="group relative w-full bg-white border-2 border-[#8B4513] text-[#8B4513] font-bold py-4 rounded-xl hover:bg-gradient-to-r hover:from-[#8B4513] hover:to-[#A0522D] hover:text-white hover:border-[#654321] transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#8B4513]/60 active:scale-100 active:translate-y-0">
+                                        <span className="relative z-10"><i className="fas fa-star mr-2 rtl:mr-0 rtl:ml-2"></i> Leave a Review</span>
+                                        <span className="absolute inset-0 bg-white/20 rounded-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                                     </button>
                                 </div>
                             </div>

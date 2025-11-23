@@ -63,25 +63,25 @@ const MarketplacePage: React.FC<MarketplacePageProps> = ({ onViewSeller }) => {
         <>
             <CattleDetailsModal cattle={selectedCattle} onClose={() => setSelectedCattle(null)} onViewSeller={onViewSeller} />
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="bg-[#253f4b] p-6 rounded-2xl shadow-2xl border border-[#365563]/50 mb-12">
-                    <h1 className="text-3xl font-bold text-white mb-4">Marketplace</h1>
+                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-2xl border border-[#8B4513]/30 mb-12">
+                    <h1 className="text-3xl font-bold text-[#654321] mb-4">Marketplace</h1>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <input type="text" placeholder="Search by breed, location..." name="searchTerm" value={filters.searchTerm} onChange={handleFilterChange} className="lg:col-span-4 bg-[#1a2b34]/50 border border-[#365563] rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#537d90]" />
+                        <input type="text" placeholder="Search by breed, location..." name="searchTerm" value={filters.searchTerm} onChange={handleFilterChange} className="lg:col-span-4 bg-white/80 border border-[#8B4513]/30 rounded-lg px-4 py-2 text-[#654321] focus:outline-none focus:ring-2 focus:ring-[#8B4513]" />
                         
-                        <select name="breed" value={filters.breed} onChange={handleFilterChange} className="bg-[#1a2b34]/50 border border-[#365563] rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#537d90]">
+                        <select name="breed" value={filters.breed} onChange={handleFilterChange} className="bg-white/80 border border-[#8B4513]/30 rounded-lg px-4 py-2 text-[#654321] focus:outline-none focus:ring-2 focus:ring-[#8B4513]">
                             <option>Any Breed</option>
                             {uniqueBreeds.map(b => <option key={b}>{b}</option>)}
                         </select>
-                         <select name="location" value={filters.location} onChange={handleFilterChange} className="bg-[#1a2b34]/50 border border-[#365563] rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#537d90]">
+                         <select name="location" value={filters.location} onChange={handleFilterChange} className="bg-white/80 border border-[#8B4513]/30 rounded-lg px-4 py-2 text-[#654321] focus:outline-none focus:ring-2 focus:ring-[#8B4513]">
                             <option>Any Location</option>
                             {uniqueLocations.map(l => <option key={l}>{l}</option>)}
                         </select>
-                        <select name="isVerified" value={filters.isVerified} onChange={handleFilterChange} className="bg-[#1a2b34]/50 border border-[#365563] rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#537d90]">
+                        <select name="isVerified" value={filters.isVerified} onChange={handleFilterChange} className="bg-white/80 border border-[#8B4513]/30 rounded-lg px-4 py-2 text-[#654321] focus:outline-none focus:ring-2 focus:ring-[#8B4513]">
                             <option value="any">Any Health Status</option>
                             <option value="yes">Verified</option>
                             <option value="no">Unverified</option>
                         </select>
-                        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="bg-[#1a2b34]/50 border border-[#365563] rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#537d90]">
+                        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="bg-white/80 border border-[#8B4513]/30 rounded-lg px-4 py-2 text-[#654321] focus:outline-none focus:ring-2 focus:ring-[#8B4513]">
                             <option value="dateListed-desc">Sort by: Newest</option>
                             <option value="price-asc">Sort by: Price (Low to High)</option>
                             <option value="price-desc">Sort by: Price (High to Low)</option>
@@ -91,12 +91,12 @@ const MarketplacePage: React.FC<MarketplacePageProps> = ({ onViewSeller }) => {
                             <option value="weight-desc">Sort by: Weight (Heaviest First)</option>
                         </select>
                         <div className="flex items-center gap-2">
-                             <input type="number" placeholder="Min Age" name="minAge" value={filters.minAge} onChange={handleFilterChange} className="w-full bg-[#1a2b34]/50 border border-[#365563] rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#537d90]" />
-                             <input type="number" placeholder="Max Age" name="maxAge" value={filters.maxAge} onChange={handleFilterChange} className="w-full bg-[#1a2b34]/50 border border-[#365563] rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#537d90]" />
+                             <input type="number" placeholder="Min Age" name="minAge" value={filters.minAge} onChange={handleFilterChange} className="w-full bg-white/80 border border-[#8B4513]/30 rounded-lg px-4 py-2 text-[#654321] focus:outline-none focus:ring-2 focus:ring-[#8B4513]" />
+                             <input type="number" placeholder="Max Age" name="maxAge" value={filters.maxAge} onChange={handleFilterChange} className="w-full bg-white/80 border border-[#8B4513]/30 rounded-lg px-4 py-2 text-[#654321] focus:outline-none focus:ring-2 focus:ring-[#8B4513]" />
                         </div>
                          <div className="flex items-center gap-2">
-                             <input type="number" placeholder="Min Weight" name="minWeight" value={filters.minWeight} onChange={handleFilterChange} className="w-full bg-[#1a2b34]/50 border border-[#365563] rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#537d90]" />
-                             <input type="number" placeholder="Max Weight" name="maxWeight" value={filters.maxWeight} onChange={handleFilterChange} className="w-full bg-[#1a2b34]/50 border border-[#365563] rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#537d90]" />
+                             <input type="number" placeholder="Min Weight" name="minWeight" value={filters.minWeight} onChange={handleFilterChange} className="w-full bg-white/80 border border-[#8B4513]/30 rounded-lg px-4 py-2 text-[#654321] focus:outline-none focus:ring-2 focus:ring-[#8B4513]" />
+                             <input type="number" placeholder="Max Weight" name="maxWeight" value={filters.maxWeight} onChange={handleFilterChange} className="w-full bg-white/80 border border-[#8B4513]/30 rounded-lg px-4 py-2 text-[#654321] focus:outline-none focus:ring-2 focus:ring-[#8B4513]" />
                         </div>
 
                     </div>
@@ -109,7 +109,7 @@ const MarketplacePage: React.FC<MarketplacePageProps> = ({ onViewSeller }) => {
                 </div>
                  {filteredAndSortedCattle.length === 0 && (
                     <div className="text-center col-span-full py-12">
-                        <p className="text-xl text-[#8eb1c2]">No cattle match the current filters.</p>
+                        <p className="text-xl text-[#8B4513]">No cattle match the current filters.</p>
                     </div>
                 )}
             </div>

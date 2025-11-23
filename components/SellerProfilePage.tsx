@@ -29,19 +29,19 @@ const RatingSummary: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
     if (totalReviews === 0) return null;
 
     return (
-        <div className="bg-[#1a2b34]/50 p-6 rounded-lg border border-[#365563]">
-            <h3 className="text-lg font-bold text-white mb-4">Rating Distribution</h3>
+        <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg border border-[#8B4513]/30 shadow-md">
+            <h3 className="text-lg font-bold text-[#654321] mb-4">Rating Distribution</h3>
             <div className="space-y-2">
                 {Object.entries(ratingDistribution).reverse().map(([star, count]) => {
                     // FIX: Explicitly cast `count` to a Number to prevent a TypeScript error with arithmetic operations.
                     const percentage = totalReviews > 0 ? (Number(count) / totalReviews) * 100 : 0;
                     return (
                         <div key={star} className="flex items-center gap-4">
-                            <span className="text-sm text-stone-300 w-12">{star} star{Number(star) > 1 ? 's' : ''}</span>
-                            <div className="w-full bg-[#365563] rounded-full h-2.5">
-                                <div className="bg-[#acc8d7] h-2.5 rounded-full" style={{ width: `${percentage}%` }}></div>
+                            <span className="text-sm text-[#654321] w-12">{star} star{Number(star) > 1 ? 's' : ''}</span>
+                            <div className="w-full bg-white/50 rounded-full h-2.5">
+                                <div className="bg-[#8B4513] h-2.5 rounded-full" style={{ width: `${percentage}%` }}></div>
                             </div>
-                            <span className="text-sm text-[#8eb1c2] w-8 text-right">{count}</span>
+                            <span className="text-sm text-[#8B4513] w-8 text-right">{count}</span>
                         </div>
                     );
                 })}
@@ -60,7 +60,7 @@ const SellerProfilePage: React.FC<SellerProfilePageProps> = ({ sellerId, onViewS
     if (!seller) {
         return (
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-                <h1 className="text-3xl font-bold text-white">Seller not found.</h1>
+                <h1 className="text-3xl font-bold text-[#654321]">Seller not found.</h1>
             </div>
         );
     }
@@ -70,9 +70,9 @@ const SellerProfilePage: React.FC<SellerProfilePageProps> = ({ sellerId, onViewS
             <CattleDetailsModal cattle={selectedCattle} onClose={() => setSelectedCattle(null)} onViewSeller={onViewSeller} />
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
                 <section>
-                    <div className="bg-[#253f4b] p-8 rounded-2xl shadow-2xl border border-[#365563]/50">
-                        <h1 className="text-4xl font-bold text-white">{seller.name}</h1>
-                        <p className="text-[#8eb1c2] mt-2"><i className="fas fa-map-marker-alt mr-2 rtl:mr-0 rtl:ml-2"></i>{seller.location}</p>
+                    <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-2xl border border-[#8B4513]/30">
+                        <h1 className="text-4xl font-bold text-[#654321]">{seller.name}</h1>
+                        <p className="text-[#8B4513] mt-2"><i className="fas fa-map-marker-alt mr-2 rtl:mr-0 rtl:ml-2"></i>{seller.location}</p>
                         <div className="mt-4">
                             <StarRating rating={seller.rating} ratingCount={seller.ratingCount} />
                         </div>
@@ -80,7 +80,7 @@ const SellerProfilePage: React.FC<SellerProfilePageProps> = ({ sellerId, onViewS
                 </section>
 
                 <section>
-                    <h2 className="text-3xl font-bold text-white mb-8">Listings from {seller.name}</h2>
+                    <h2 className="text-3xl font-bold text-[#654321] mb-8">Listings from {seller.name}</h2>
                     {sellerCattle.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                             {sellerCattle.map(cattle => (
@@ -88,14 +88,14 @@ const SellerProfilePage: React.FC<SellerProfilePageProps> = ({ sellerId, onViewS
                             ))}
                         </div>
                     ) : (
-                        <div className="text-center bg-[#253f4b] p-12 rounded-2xl border border-[#365563]/50">
-                            <p className="text-xl text-[#8eb1c2]">{seller.name} has no active listings.</p>
+                        <div className="text-center bg-white/80 backdrop-blur-sm p-12 rounded-2xl border border-[#8B4513]/30 shadow-md">
+                            <p className="text-xl text-[#8B4513]">{seller.name} has no active listings.</p>
                         </div>
                     )}
                 </section>
 
                 <section>
-                    <h2 className="text-3xl font-bold text-white mb-8">Customer Reviews</h2>
+                    <h2 className="text-3xl font-bold text-[#654321] mb-8">Customer Reviews</h2>
                      {sellerReviews.length > 0 ? (
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                             <div className="lg:col-span-1">
@@ -108,8 +108,8 @@ const SellerProfilePage: React.FC<SellerProfilePageProps> = ({ sellerId, onViewS
                             </div>
                         </div>
                     ) : (
-                         <div className="text-center bg-[#253f4b] p-12 rounded-2xl border border-[#365563]/50">
-                            <p className="text-xl text-[#8eb1c2]">No reviews yet for {seller.name}.</p>
+                         <div className="text-center bg-white/80 backdrop-blur-sm p-12 rounded-2xl border border-[#8B4513]/30 shadow-md">
+                            <p className="text-xl text-[#8B4513]">No reviews yet for {seller.name}.</p>
                         </div>
                     )}
                 </section>

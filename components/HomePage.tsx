@@ -28,8 +28,8 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, onViewSeller }) => 
             role="img"
             aria-label="Cattle marketplace hero background"
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1a2b34] via-[#1a2b34]/80 to-transparent"></div>
-          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#F5F5DC] via-[#F5F5DC]/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
           <div className="relative z-10 px-4">
             <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 animate-fade-in-down">
               {t('home.heroTitle')}
@@ -40,13 +40,15 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, onViewSeller }) => 
             <div className="flex justify-center gap-4 animate-fade-in-up">
               <button 
                 onClick={() => setCurrentPage(Page.MARKETPLACE)}
-                className="px-8 py-3 bg-[#446879] text-white font-semibold rounded-lg hover:bg-[#537d90] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(68,104,121,0.6)]">
-                {t('home.exploreMarketplace')}
+                className="group relative px-10 py-4 bg-gradient-to-r from-[#8B4513] to-[#A0522D] text-white font-bold rounded-xl hover:from-[#A0522D] hover:to-[#8B4513] transform hover:scale-110 hover:-translate-y-1 transition-all duration-300 shadow-2xl hover:shadow-[0_20px_40px_rgba(139,69,19,0.6)] border-2 border-[#654321]/30 active:scale-105 active:translate-y-0">
+                <span className="relative z-10">{t('home.exploreMarketplace')}</span>
+                <span className="absolute inset-0 bg-white/25 rounded-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </button>
               <button 
                 onClick={() => setCurrentPage(Page.LOGIN)}
-                className="px-8 py-3 bg-[#365563]/50 text-white font-semibold rounded-lg hover:bg-[#365563]/80 transform hover:scale-105 transition-all duration-300 backdrop-blur-sm">
-                {t('home.sellCattle')}
+                className="group relative px-10 py-4 bg-white/25 backdrop-blur-md text-white font-bold rounded-xl hover:bg-white/40 transform hover:scale-110 hover:-translate-y-1 transition-all duration-300 border-2 border-white/40 hover:border-white/70 shadow-xl hover:shadow-2xl hover:shadow-white/30 active:scale-105 active:translate-y-0">
+                <span className="relative z-10">{t('home.sellCattle')}</span>
+                <span className="absolute inset-0 bg-white/20 rounded-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </button>
             </div>
           </div>
@@ -54,8 +56,8 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, onViewSeller }) => 
 
         {/* Featured Cattle Section */}
         <section className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-white mb-2">{t('home.featuredListings')}</h2>
-          <p className="text-center text-[#8eb1c2] mb-12">{t('home.featuredSubtitle')}</p>
+          <h2 className="text-3xl font-bold text-center text-[#654321] mb-2">{t('home.featuredListings')}</h2>
+          <p className="text-center text-[#8B4513] mb-12">{t('home.featuredSubtitle')}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {MOCK_CATTLE_DATA.slice(0, 3).map((cattle, index) => (
               <div key={cattle.id} style={{ animationDelay: `${index * 150}ms` }} className="animate-fade-in-up">
@@ -67,36 +69,36 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, onViewSeller }) => 
 
         {/* How it Works Section */}
         <section className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center text-white mb-12">{t('home.seamlessExperience')}</h2>
+            <h2 className="text-3xl font-bold text-center text-[#654321] mb-12">{t('home.seamlessExperience')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
                 <div className="flex flex-col items-center">
-                    <div className="bg-[#253f4b]/50 rounded-full w-24 h-24 flex items-center justify-center mb-4 border-2 border-[#537d90]/30">
-                        <i className="fas fa-qrcode text-4xl text-[#608da2]"></i>
+                    <div className="bg-white/80 backdrop-blur-sm rounded-full w-24 h-24 flex items-center justify-center mb-4 border-2 border-[#8B4513]/30 shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <i className="fas fa-qrcode text-4xl text-[#8B4513]"></i>
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-2">{t('home.step1Title')}</h3>
-                    <p className="text-[#8eb1c2]">{t('home.step1Desc')}</p>
+                    <h3 className="text-xl font-semibold text-[#654321] mb-2">{t('home.step1Title')}</h3>
+                    <p className="text-[#8B4513]">{t('home.step1Desc')}</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <div className="bg-[#253f4b]/50 rounded-full w-24 h-24 flex items-center justify-center mb-4 border-2 border-[#537d90]/30">
-                        <i className="fas fa-store text-4xl text-[#608da2]"></i>
+                    <div className="bg-white/80 backdrop-blur-sm rounded-full w-24 h-24 flex items-center justify-center mb-4 border-2 border-[#8B4513]/30 shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <i className="fas fa-store text-4xl text-[#8B4513]"></i>
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-2">{t('home.step2Title')}</h3>
-                    <p className="text-[#8eb1c2]">{t('home.step2Desc')}</p>
+                    <h3 className="text-xl font-semibold text-[#654321] mb-2">{t('home.step2Title')}</h3>
+                    <p className="text-[#8B4513]">{t('home.step2Desc')}</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <div className="bg-[#253f4b]/50 rounded-full w-24 h-24 flex items-center justify-center mb-4 border-2 border-[#537d90]/30">
-                        <i className="fas fa-truck text-4xl text-[#608da2]"></i>
+                    <div className="bg-white/80 backdrop-blur-sm rounded-full w-24 h-24 flex items-center justify-center mb-4 border-2 border-[#8B4513]/30 shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <i className="fas fa-truck text-4xl text-[#8B4513]"></i>
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-2">{t('home.step3Title')}</h3>
-                    <p className="text-[#8eb1c2]">{t('home.step3Desc')}</p>
+                    <h3 className="text-xl font-semibold text-[#654321] mb-2">{t('home.step3Title')}</h3>
+                    <p className="text-[#8B4513]">{t('home.step3Desc')}</p>
                 </div>
             </div>
         </section>
 
         {/* Market Trends Section */}
         <section className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-white mb-12">{t('home.marketInsights')}</h2>
-          <div className="bg-[#253f4b] p-8 rounded-2xl shadow-2xl border border-[#365563]/50 backdrop-blur-sm">
+          <h2 className="text-3xl font-bold text-center text-[#654321] mb-12">{t('home.marketInsights')}</h2>
+          <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-2xl border border-[#8B4513]/30">
               <MarketChart data={MARKET_TRENDS_DATA} />
           </div>
         </section>
