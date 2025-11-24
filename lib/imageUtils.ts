@@ -25,7 +25,7 @@ export const getCattleImageUrl = (cattleId: string, fallbackUrl: string): string
 export const getHeroImageUrl = (): string => {
   // Returns the hero background image path
   // CSS fallback will use the original Unsplash URL if local image doesn't exist
-  return '/images/hero/hero-bg.jpg';
+  return '/images/hero/hero-bg.png';
 };
 
 /**
