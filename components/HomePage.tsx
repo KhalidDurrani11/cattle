@@ -28,8 +28,8 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, onViewSeller }) => 
             role="img"
             aria-label="Cattle marketplace hero background"
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#F5F5DC] via-[#F5F5DC]/80 to-transparent"></div>
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#F5F5DC]/60 via-[#F5F5DC]/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-black/20"></div>
           <div className="relative z-10 px-4">
             <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 animate-fade-in-down">
               {t('home.heroTitle')}
