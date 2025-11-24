@@ -23,7 +23,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, onViewSeller }) => 
         {/* Hero Section */}
         <section className="relative h-[600px] flex items-center justify-center text-center overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 bg-cover bg-center filter blur-sm scale-105 transform"
             style={{ backgroundImage: `url('${getHeroImageUrl()}'), url('https://images.unsplash.com/photo-1570027878205-57715478c94a?q=80&w=1920&auto=format&fit=crop')` }}
             role="img"
             aria-label="Cattle marketplace hero background"
@@ -31,7 +31,7 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage, onViewSeller }) => 
           <div className="absolute inset-0 bg-gradient-to-t from-[#F5F5DC]/60 via-[#F5F5DC]/30 to-transparent"></div>
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="relative z-10 px-4">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 animate-fade-in-down">
+            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-4 animate-fade-in-down">
               {t('home.heroTitle')}
             </h1>
             <p className="text-lg md:text-xl text-stone-300 max-w-3xl mx-auto mb-8 animate-fade-in-up">
